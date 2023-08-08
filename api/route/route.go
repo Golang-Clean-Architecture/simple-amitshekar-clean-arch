@@ -8,9 +8,9 @@ import (
 )
 
 func Setup(env *bootstrap.Env, db *gorm.DB, gin *gin.Engine) {
-	publicRouter := gin.Group("/v1/todo")
+	// publicRouter := gin.Group("/v1/todo")
 	// All Public APIs
-	NewTodoRouter(env, db, publicRouter)
+	// NewTodoRouter(env, db, publicRouter)
 
 	// protectedRouter := gin.Group("/v1")
 

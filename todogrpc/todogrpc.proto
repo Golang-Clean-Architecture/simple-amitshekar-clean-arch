@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package todogrpc;
+
+option go_package = "bxcodec-clean-arch/todogrpc";
+
+service TodoCRUD {
+    rpc CreateTodo (NewTodo) returns (Error) {}
+    rpc GetAll (google.protobuf.Empty) returns (RepeatedTodo) {}
+    rpc GetTodo (TodoName) returns (Todo) {}
+    rpc DeleteTodo (TodoName) returns (Error) {}
+    rpc UpdateTodo (NewTodo) returns(Error) {}
+}
+
+message NewTodo {
+    string Name = 1;
+    string Status = 2;
+}
+
+message TodoName {
+    string Name = 1;
+}
+
+message Error {
+    string Message = 1;
+}
+
+message Todo {
+    int32 ID = 1;
+    string Name = 2;
+    string Status = 3;
+}
+
+message RepeatedTodo {
+    repeated Todo Todo = 1;
+}
